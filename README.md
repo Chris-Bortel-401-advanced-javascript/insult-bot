@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Insult Bot
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## User Stories
+As a user, I want to be able to:
+- As a user, I expect to see a list of available names from 401n17 so that I can easily insult individuals 
+- As a user, I want to be able to click on a name and be returned a picture of the individual, the persons name, and a randomized insult
 
-## Available Scripts
+  ![john](./src/img/john.png)
+  
+  
+  ``John smells like farts``
 
-In the project directory, you can run:
+## Business Requirments
 
-### `npm start`
+## Application Architecture
+Create the Virtual Store application as follows:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Write an ``App`` component that serves as the container for all sub-components of this application
+  - A ``<Header>`` component which shows the name of your virtual store
+  - A ``<ThunderDome>`` component which shows the components
+  - A ``<People>`` component
+    - Shows a list of all the people
+    - Dispatches an action when one is clicked to “activate” it
+  - An ``<Insult>`` component
+    - That stores a list of all of the insults
+    - Dispatches an action when one is clicked to “activate” it
+    - Randomizes insult on render
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Pseudo Code
 
-### `npm run build`
+```
+Redux Store:
+- Reducers:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ - People:
+  - s: People
+  - s: Victim
+  - a: selectVictim
+  - a: showPeople
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - Insults:
+  - s: Insults
+  - a: sendRandomInsult
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<App />
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<Header />
+  // Displays App name
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<ThunderDome>
+  // Acts as a stage for the components
+  a: getCategories
+  a: getProducts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<People />
+  // Lists out all of the people
+  s: people
+  a: selectVictim
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<Insults />
+  // Displays the selectedVictim
+  s: selectedVictim
+  s: insults
+  a: sendRandomInsult
 
-## Learn More
+<Product />
+  // Lists out all of the products in a given category
+  s: products
+  s: activeCategory
+  a: getProducts
+  a: addToCart
+  a: decrementInStockCount
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
