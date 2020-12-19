@@ -1,19 +1,19 @@
 # Insult Bot
 
 ## User Stories
-As a user, I want to be able to:
-- As a user, I expect to see a list of available names from 401n17 so that I can easily insult individuals 
-- As a user, I want to be able to click on a name and be returned a picture of the individual, the persons name, and a randomized insult
+  As a user, I want to be able to:
+  - As a user, I expect to see a list of available names from 401n17 so that I can easily insult individuals 
+  - As a user, I want to be able to click on a name and be returned a picture of the individual, the persons name, and a randomized insult
 
-  ![john](./src/img/john.png)
-  
-  
-  ``John smells like farts``
+    ![john](./src/img/john.png)
+    
+    
+    ``John smells like farts``
 
-## Business Requirments
+<br>
 
 ## Application Architecture
-Create the Virtual Store application as follows:
+Create the Insult Bot application as follows:
 
 Write an ``App`` component that serves as the container for all sub-components of this application
   - A ``<Header>`` component which shows the name of your virtual store
@@ -27,6 +27,7 @@ Write an ``App`` component that serves as the container for all sub-components o
     - Randomizes insult on render
 
 
+<br>
 
 ## Pseudo Code
 
@@ -37,13 +38,12 @@ Redux Store:
  - People:
   - s: People
   - s: Victim
-  - a: selectVictim
   - a: showPeople
+  - a: selectVictim
 
  - Insults:
   - s: Insults
   - a: sendRandomInsult
-
 
 <App />
 
@@ -52,8 +52,6 @@ Redux Store:
 
 <ThunderDome>
   // Acts as a stage for the components
-  a: getCategories
-  a: getProducts
 
 <People />
   // Lists out all of the people
@@ -65,13 +63,5 @@ Redux Store:
   s: selectedVictim
   s: insults
   a: sendRandomInsult
-
-<Product />
-  // Lists out all of the products in a given category
-  s: products
-  s: activeCategory
-  a: getProducts
-  a: addToCart
-  a: decrementInStockCount
 
 ```
