@@ -22,16 +22,20 @@ const useStyles = makeStyles((theme) => ({
 export default function People() {
   const classes = useStyles();
 
-  // const dispatch = useDispatch();
-  // const categories = useSelector(state => state.categories.categories);
+  const dispatch = useDispatch();
+  const peopleList = useSelector(state => state.people.peopleList);
 
   return (
 
     <div className={classes.root}>
       <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
         
-      
-        <Button>Person</Button>
+      {peopleList.map(people => {
+        return (
+
+        <Button key={Math.random()}>{people.name}</Button>
+        )
+      })};
         
 
       </ButtonGroup>
