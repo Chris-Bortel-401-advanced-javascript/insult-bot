@@ -65,3 +65,6 @@ Redux Store:
   a: sendRandomInsult
 
 ```
+
+// TODO: find a way to reference the images and show corresponding name 
+// TODO: Call the select victim and the insult them action differently

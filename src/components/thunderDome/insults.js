@@ -9,7 +9,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Image3 from '../../img/john.png'
+
+// TODO: find a way to reference the images and show corresponding name 
+// TODO: Call the select victim and the insult them action differently
+import john from '../../img/john.png'
+import chris from '../../img/chris.png'
+import brendon from '../../img/brendon.png'
+
 
 // import {changeCategory} from '../../store/categories.js'
 
@@ -45,7 +51,7 @@ let randomInsult = insultList[Math.floor(Math.random() * insultList.length)];
           <CardMedia
             className={classes.media}
             component='img'
-            image={Image3}
+            image={victim.imageURL}
         
           />
           <CardContent>
