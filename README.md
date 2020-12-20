@@ -8,7 +8,7 @@
     ![john](./src/img/john.png)
     
     
-    ``John smells like farts``
+    ``John is bald``
 
 <br>
 
