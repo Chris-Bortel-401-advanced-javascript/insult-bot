@@ -1,15 +1,15 @@
 const initialState = {
   peopleList: [
-    { name: 'John', url: '../img/john.png' },
-    { name: 'Chris', url: '../img/chris.png' },
-    { name: 'Brendon', url: '../img/brendon.png'}
+    { name: 'John', imageURL: '../../img/john.png' },
+    { name: 'Chris', imageURL: '../../img/chris.png' },
+    { name: 'Brendon', imageURL: '../../img/brendon.png'}
   ],
-  victim: {}
+  victim: null
 }
 
 export default function reducer(state=initialState, action) {
   const {type, payload} = action;
-  console.log('payload',payload)
+  // console.log('payload',payload)
 
   switch(type) {
     case 'SELECTVICTIM':
@@ -21,24 +21,24 @@ export default function reducer(state=initialState, action) {
       return {...state,
         peopleList: payload
       }
-      default:
-        return state
-      }
-    }
+    default:
+      return state
+  }
+}
     
     export const selectVictim = (victim) => {
+      console.log(victim)
       return {
         type: 'SELECTVICTIM',
         payload: victim
       }
-      
     }
+
     export const showPeopleList = (people) => {
       return {
         type: 'SHOWPEOPLELIST',
         payload: people
       }
-      
     }
 
 
